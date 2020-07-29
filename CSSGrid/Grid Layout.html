@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title> CSS Grid / Grid Layout </title>
+        <meta charset="utf-8">
+        <meta name="author" content="Bianca Cunha">
+        
+        <style>
+            
+            h2{
+                text-align: center;
+            }
+            
+            .gridContainer{
+                width: 90%;
+                background-color: #ccc;
+                margin: 30px auto;
+                color: white;
+            }
+
+            .gridItem{
+                background-color: rebeccapurple;
+                padding: 15px;
+                font-family: sans-serif;
+            }
+            
+            /*   GRID   */
+            .gridContainer{
+                display: grid;
+                grid-template-rows: [header-start] 100px [header-end nav-start] 50px [nav-end main-start] 1fr [main-end footer-start] 50px [footer-end];
+                grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+                grid-gap: 20px;
+            }
+            
+            .header{
+                grid-column: col-start 1 / col-end 3;
+                grid-row: header;
+            }
+            
+            .nav{
+                grid-column: col-start 1 / col-end 3;
+                grid-row: nav;
+            }
+            
+            .aside{
+                grid-row: main-start / footer-end;
+                grid-column: col-start 3 / col-end 3;
+            }
+            
+            .main{
+                min-height: 200px;
+                grid-row: main;
+                grid-column: col-start 1 / col-end 2;
+            }
+            
+            .footer{
+                background-color: rgba(0, 0, 0, .6);
+                grid-row: footer;
+                grid-column: col-start / span 3;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        
+        <h2>CSS Grid ou Grid Layout</h2>
+        
+        <div class="gridContainer">
+            <header class="header gridItem">Header</header>
+            <nav class="nav gridItem">Nav</nav>
+            <aside class="aside gridItem">Aside</aside>
+            <main class="main gridItem">Main</main>
+            <footer class="footer gridItem">Footer</footer>
+        </div>
+        
+    </body>
+    
+</html>
